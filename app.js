@@ -1,6 +1,6 @@
 import express, { urlencoded } from "express";
 import dotenv from "dotenv";
-import userRoute from "./routes/user.js";
+import userRoute from "./routes/User.js";
 import orderRoute from "./routes/Order.js";
 import { connectPassport } from "./utils/Provider.js";
 import session from "express-session";
@@ -40,10 +40,10 @@ app.use(
     // },
 
     // When you are in development mode
-    cookie:{
-      secure:false,
-      httpOnly:false,
-      sameSite:false,
+    cookie: {
+      secure: false,
+      httpOnly: false,
+      sameSite: false,
     },
   })
 );
@@ -51,25 +51,23 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use(
-  urlencoded({  
+  urlencoded({
     extended: true,
   })
 );
 
 app.use(
-  cors(
-    {
+  cors({
     credentials: true,
     origin: process.env.FRONTENT_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    }
-  )
+  })
 );
 
 app.use(passport.authenticate("session"));
 app.use(passport.initialize());
 app.use(passport.session());
-app.enable("trust proxy");  // for deployment
+app.enable("trust proxy"); // for deployment
 
 connectPassport();
 
