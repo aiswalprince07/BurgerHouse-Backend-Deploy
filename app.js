@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import { connectPassport } from "./utils/Provider.js";
 import session from "express-session";
 import passport from "passport";
-import userRoute from "./routes/user.js";
-import orderRoute from "./routes/order.js"
+import userRoute from "./routes/User.js";
+import orderRoute from "./routes/Order.js";
 import cookieParser from "cookie-parser";
 import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import cors from "cors";

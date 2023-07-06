@@ -5,7 +5,7 @@ import {
   logout,
   getAdminUsers,
   getAdminStats,
-} from "../controllers/user.js";
+} from "../controllers/User.js";
 import { authorizeAdmin, isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
