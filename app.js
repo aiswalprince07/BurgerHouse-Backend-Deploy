@@ -40,7 +40,7 @@ app.use(urlencoded({
 app.use(
     cors({
         credentials:true, 
-         origin:["https://the-burger-house.vercel.app/"],
+        origin:process.env.FRONTEND_URL,
         methods:["GET","POST","PUT","DELETE"],
     })
 );
